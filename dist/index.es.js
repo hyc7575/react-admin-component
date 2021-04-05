@@ -1993,7 +1993,15 @@ var Breadcrumb = function (_a) {
         }))));
 };
 
-// iconName은 여기서 검색한다 https://akveo.github.io/eva-icons/#/
+/**
+ * Priority : solid > line > text
+ *
+ * Solid type은 최고 우선순위, 주요 기능, 행동 유도를 해야하는 버튼에만 사용
+ *
+ * Link type은 새탭, 새창 등 페이지를 벗어나는 경우에만 사용
+ *
+ * iconName은 여기서 검색한다 https://akveo.github.io/eva-icons/#/
+ */
 var Button = function (_a) {
     var _b = _a.children, children = _b === void 0 ? '버튼' : _b, _c = _a.type, type = _c === void 0 ? 'solid' : _c, _d = _a.color, color = _d === void 0 ? 'blue' : _d, _e = _a.size, size = _e === void 0 ? 'middle' : _e, _f = _a.iconName, iconName = _f === void 0 ? '' : _f, _g = _a.iconSize, iconSize = _g === void 0 ? '18' : _g, onClick = _a.onClick, _h = _a.disabled, disabled = _h === void 0 ? false : _h, style = _a.style, dataTip = _a.dataTip, dataFor = _a.dataFor, className = _a.className;
     var iconButton = React.createElement("button", { style: style, onClick: onClick, className: "btn-type-" + type + " btn-color-" + color + " btn-size-" + size + " " + (disabled ? 'btn-disabled' : '') + " btn-icon-text " + className, "data-tip": dataTip, "data-for": dataFor },
@@ -2276,7 +2284,7 @@ var SwitchButton = function (_a) {
 
 var Tag = function (_a) {
     var children = _a.children, color = _a.color, style = _a.style;
-    return (React.createElement("div", { className: "tag " + color + "-tag", style: __assign({}, style) }, children));
+    return (React.createElement("div", { className: "tag-item " + color + "-tag", style: __assign({}, style) }, children));
 };
 
 var TabMenu = function (_a) {
@@ -4907,8 +4915,8 @@ var InputContainer = function (_a) {
 };
 
 var Modal = function (_a) {
-    var children = _a.children, style = _a.style, _b = _a.title, title = _b === void 0 ? 'Modal title' : _b, subTitle = _a.subTitle, _c = _a.size, size = _c === void 0 ? 'small' : _c, _d = _a.noScroll, noScroll = _d === void 0 ? false : _d, _e = _a.onClickInBackground, onClickInBackground = _e === void 0 ? function () {
-    } : _e, cancelButtonComponent = _a.cancelButtonComponent, actionButtonComponent = _a.actionButtonComponent, footerComponent = _a.footerComponent;
+    var children = _a.children, style = _a.style, _b = _a.title, title = _b === void 0 ? 'Modal title' : _b, subTitle = _a.subTitle, _c = _a.size, size = _c === void 0 ? 'small' : _c, _d = _a.noScroll, noScroll = _d === void 0 ? false : _d, _e = _a.withSection, withSection = _e === void 0 ? false : _e, _f = _a.onClickInBackground, onClickInBackground = _f === void 0 ? function () {
+    } : _f, cancelButtonComponent = _a.cancelButtonComponent, actionButtonComponent = _a.actionButtonComponent, footerComponent = _a.footerComponent;
     return (React.createElement("div", { className: 'modal-wrap' },
         React.createElement("div", { className: 'overlay', onClick: onClickInBackground }),
         React.createElement("div", { className: "modal modal-size-" + size + " " + (noScroll && 'no-scroll'), style: style },
@@ -4919,7 +4927,7 @@ var Modal = function (_a) {
                         cancelButtonComponent,
                         actionButtonComponent)),
                 React.createElement("div", { className: 'header-bottom' }, subTitle)),
-            React.createElement("div", { className: 'modal-contents' }, children),
+            React.createElement("div", { className: "modal-contents " + (withSection ? 'with-section' : '') }, children),
             footerComponent && React.createElement("footer", null, footerComponent))));
 };
 
