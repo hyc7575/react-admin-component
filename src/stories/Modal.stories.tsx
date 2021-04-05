@@ -11,7 +11,12 @@ import SwitchButton from '../atoms/SwitchButton';
 export default {
     title: '모달',
     component: Modal,
-    decorators: [withKnobs]
+    decorators: [withKnobs],
+	parameters: {
+		docs: {
+			page: null
+		}
+	}
 };
 
 const onClick = () => {
@@ -588,7 +593,8 @@ export const ModalStoryWithIndent = () => {
 }
 
 export const ModalStoryWithSection = () => {
-	return <Modal>
+	return <Modal withSection={true} 
+		actionButtonComponent={<><Button>Close</Button></>}>
 		<SectionContainer>
 			<Section title="section 1">
 				<p>section contents</p>
