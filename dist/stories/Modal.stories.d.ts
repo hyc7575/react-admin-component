@@ -24,3 +24,4 @@ export declare const ModalStoryWithoutScroll: () => JSX.Element;
 export declare const ModalStoryWithLong: () => JSX.Element;
 export declare const ModalStoryWithInform: () => JSX.Element;
 export declare const ModalStoryWithIndent: () => JSX.Element;
+export declare const ModalStoryWithSection: () => JSX.Element;

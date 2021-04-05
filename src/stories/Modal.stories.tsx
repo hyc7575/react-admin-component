@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { withKnobs, select } from '@storybook/addon-knobs'
 import { useModal } from '../index';
 import { DatePicker, TimePicker } from 'antd';
-import { Divider, ModalItem, ButtonTypeInput, InputContainer, Input, CombineInput, SelectBox, Modal, Button, DefinitionTag, DefinitionTagContainer } from '../index';
+import { Divider, ModalItem, ButtonTypeInput, InputContainer, Input, CombineInput, SelectBox, Modal, Button, DefinitionTag, DefinitionTagContainer, Section, SectionContainer } from '../index';
 import useRadioBox from '../hooks/useRadioBox';
 import useCheckBox from '../hooks/useCheckBox';
 import TabMenu from '../atoms/TabMenu';
 import SwitchButton from '../atoms/SwitchButton';
-
 
 export default {
     title: '모달',
@@ -586,4 +585,19 @@ export const ModalStoryWithIndent = () => {
             </div>
         </ModalItem>
     </Modal>
+}
+
+export const ModalStoryWithSection = () => {
+	return <Modal>
+		<SectionContainer>
+			<Section title="section 1">
+				<p>section contents</p>
+			</Section>
+		</SectionContainer>
+		<SectionContainer>
+			<Section title="section 2">
+				<p>section contents</p>
+			</Section>
+		</SectionContainer>
+	</Modal>
 }
